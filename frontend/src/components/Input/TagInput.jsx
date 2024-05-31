@@ -4,29 +4,30 @@ import { MdAdd, MdClose } from "react-icons/md";
 const TagInput = ({ tags, setTags }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleRemoveTag = (tag) => {
-    setTags(tags.filter((tag) => tag !== tag));
-  };
   const handleInputChange = (e) => {
-    console.log("handles change");
     setInputValue(e.target.value);
   };
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      addNewTag();
-    }
-  };
+
   const addNewTag = () => {
-    console.log("addNewTag");
     if (inputValue.trim() !== "") {
       setTags([...tags, inputValue.trim()]);
       setInputValue("");
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      addNewTag();
+    }
+  };
+
+  const handleRemoveTag = (tagToRemove) => {
+    setTags(tags.filter((tag) => tag !== tagToRemove));
+  };
+
   return (
     <div>
-      {tags?.length > 0 && (
+      {tags.length > 0 && (
         <div className="flex items-center gap-2 flex-wrap mt-2">
           {tags.map((tag, index) => (
             <span
