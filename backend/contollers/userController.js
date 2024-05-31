@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../model/UserModel.js";
 
+// create user
 export const createUser = async (req, res) => {
   const { fullName, email, password } = req.body;
 
@@ -42,6 +43,7 @@ export const createUser = async (req, res) => {
   });
 };
 
+// login user
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -78,6 +80,7 @@ export const loginUser = async (req, res) => {
   }
 };
 
+//get the user
 export const getUser = async (req, res) => {
   const { user } = req.user;
 

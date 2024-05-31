@@ -1,4 +1,49 @@
 
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImZ1bGxOYW1lIjoiQWFheXVzaCIsImVtYWlsIjoiYWcxM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IkFnQDk4NDEiLCJjcmVhdGVkT24iOiIyMDI0LTA1LTMxVDE0OjU1OjU3Ljk4OFoiLCJfaWQiOiI2NjU5ZTViZjQ0MDdjZjU5NGIxYjgzOTkiLCJfX3YiOjB9LCJpYXQiOjE3MTcxNjc1NTEsImV4cCI6MTcxOTMyNzU1MX0.L8_RRc7LAySMKpcopzt8UYdYFnh7qRbLdlASqY6rljw
+# POST http://localhost:8000/api/users/create-account
+# Content-Type: application/json
+
+# {
+#     "fullName":"Aaayush",
+#     "email":"ag13@gmail.com",
+#     "password":"Ag@9841"
+# }
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NTllNWJmNDQwN2NmNTk0YjFiODM5OSIsImZ1bGxOYW1lIjoiQWFheXVzaCIsImVtYWlsIjoiYWcxM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IkFnQDk4NDEiLCJjcmVhdGVkT24iOiIyMDI0LTA1LTMxVDE0OjU1OjU3Ljk4OFoiLCJfX3YiOjB9LCJpYXQiOjE3MTcxNjc2MDMsImV4cCI6MTcxOTMyNzYwM30.VTE3cAmhe6TvMpx-J2LYqSPaVSl9g5raE_ZhKpgzQr4
+
+# POST http://localhost:8000/api/users/login
+# Content-Type: application/json
+
+# {
+    
+#     "email":"ag13@gmail.com",
+#     "password":"Ag@9841"
+# }
+# 6659cf53279a5a2bbe07cf05
+# 6659cafe279a5a2bbe07cef7
+
+# POST http://localhost:8000/api/notes/add-note
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NTllNWJmNDQwN2NmNTk0YjFiODM5OSIsImZ1bGxOYW1lIjoiQWFheXVzaCIsImVtYWlsIjoiYWcxM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IkFnQDk4NDEiLCJjcmVhdGVkT24iOiIyMDI0LTA1LTMxVDE0OjU1OjU3Ljk4OFoiLCJfX3YiOjB9LCJpYXQiOjE3MTcxNjc2MDMsImV4cCI6MTcxOTMyNzYwM30.VTE3cAmhe6TvMpx-J2LYqSPaVSl9g5raE_ZhKpgzQr4
+
+# { 
+
+#     "title":"nothing si good 23",
+#     "content":" nothing is good 23",
+#     "tags":["this","is","Great 23"],
+#     "isPinned":false
+
+# }
 
 
-GET http://localhost:8000/
+
+GET http://localhost:8000/api/notes/search-notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2NTllNWJmNDQwN2NmNTk0YjFiODM5OSIsImZ1bGxOYW1lIjoiQWFheXVzaCIsImVtYWlsIjoiYWcxM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IkFnQDk4NDEiLCJjcmVhdGVkT24iOiIyMDI0LTA1LTMxVDE0OjU1OjU3Ljk4OFoiLCJfX3YiOjB9LCJpYXQiOjE3MTcxNzAxNDEsImV4cCI6MTcxOTMzMDE0MX0.jBCyQvStDzCqadkMe8zsWNiRxESMKpst19ZU_RaCRQo
+
+{ 
+
+   
+
+}
+
+

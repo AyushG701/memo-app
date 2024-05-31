@@ -37,6 +37,15 @@ export const editNote = async (req, res) => {
   const { title, content, tags, isPinned } = req.body;
   const { user } = req.user;
 
+  const isValidCustomId = (id) => {
+    // Add your custom ID validation logic here
+    // For example, checking the length or format
+    return typeof id === "string" && id.length === 24; // Example validation
+  };
+
+  if (!isValidCustomId(noteId)) {
+    return res.status(400).json({ error: true, message: "Invalid note ID" });
+  }
   if (!title && !content && !tags && typeof isPinned !== "boolean") {
     return res
       .status(400)
@@ -63,13 +72,16 @@ export const editNote = async (req, res) => {
       message: "Note updated successfully",
     });
   } catch (error) {
+    console.log(error);
     return res
       .status(500)
       .json({ error: true, message: "Internal Server Error" });
   }
 };
 
+//update pinned notes
 export const updateNotePinned = async (req, res) => {
+  console.log(req.body);
   const noteId = req.params.noteId;
   const { isPinned } = req.body;
   const { user } = req.user;
@@ -97,6 +109,7 @@ export const updateNotePinned = async (req, res) => {
   }
 };
 
+//get all notes
 export const getAllNotes = async (req, res) => {
   const { user } = req.user;
 
@@ -115,6 +128,7 @@ export const getAllNotes = async (req, res) => {
   }
 };
 
+//delete note
 export const deleteNote = async (req, res) => {
   const noteId = req.params.noteId;
   const { user } = req.user;
@@ -136,6 +150,7 @@ export const deleteNote = async (req, res) => {
   }
 };
 
+//search note
 export const searchNotes = async (req, res) => {
   const { user } = req.user;
   const { query } = req.query;

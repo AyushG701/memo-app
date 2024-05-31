@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TagInput from "../../components/Input/TagInput";
 import { MdClose } from "react-icons/md";
-// import axiosInstance from "../../utils/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 const AddEditNotes = ({
   noteData,
@@ -10,16 +10,71 @@ const AddEditNotes = ({
   showToastMessage,
   getAllNotes,
 }) => {
-  const [title, setTitle] = useState(noteData?.title || " Enter title");
-
+  const [title, setTitle] = useState(noteData?.title || "");
   const [content, setContent] = useState(noteData?.content || "");
   const [tags, setTags] = useState(noteData?.tags || []);
 
   const [error, setError] = useState(null);
 
-  //add New noet
-  const addNewNote = async () => {};
-  const editNote = async () => {};
+  const addNewNote = async () => {
+    try {
+      const response = await axiosInstance.post(
+        import.meta.env.VITE_BASE_URL + "/api/notes/add-note",
+        {
+          title,
+          content,
+          tags,
+        },
+      );
+
+      if (response.data && response.data.note) {
+        showToastMessage("Note Added Successfully");
+        getAllNotes();
+        onClose();
+      }
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        setError(error.response.data.message);
+      } else {
+        setError("An unexpected error occurred. Please try again.");
+      }
+    }
+  };
+
+  const editNote = async () => {
+    const noteId = noteData._id;
+
+    try {
+      const response = await axiosInstance.put(
+        import.meta.env.VITE_BASE_URL + "/api/notes/edit-note/" + noteId,
+        {
+          title,
+          content,
+          tags,
+        },
+      );
+
+      if (response.data && response.data.note) {
+        showToastMessage("Note Updated Successfully", "update");
+        getAllNotes();
+        onClose();
+      }
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        setError(error.response.data.message);
+      } else {
+        setError("An unexpected error occurred. Please try again.");
+      }
+    }
+  };
 
   const handleAddNote = () => {
     if (!title) {
@@ -35,10 +90,8 @@ const AddEditNotes = ({
     setError("");
 
     if (type === "edit") {
-      console.log("edit note");
       editNote();
     } else {
-      console.log("edit note");
       addNewNote();
     }
   };
